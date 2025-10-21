@@ -1,0 +1,51 @@
+print ('Калькулятор   ')
+z = False
+try:
+    z = int(input(' Введите количество действий :\n Если хотите проще то введите True :'))
+except ValueError:
+    print("Вы ввели что-то не так")
+import webbrowser
+if z == True:
+    def validator(func):
+        def wrapper(url):
+            if "." in url:
+                func(url)
+            else:
+                print("Неверный URL")
+
+        return wrapper
+
+
+    @validator
+    def open_url(url):
+        webbrowser.open(url)
+
+
+    open_url("https://www.desmos.com/scientific?lang=ru")
+else:
+    i = 0
+    r = 0
+    try:
+        while i<= z :
+            q = int(input('Введите число'))
+            w = int(input('Введите число'))
+            e = input('Введите знак')
+            if e =="-":
+                 r = q - w
+            elif e =="+":
+                r = q + w
+            elif e =="*":
+                r = q * w
+            elif e =="/":
+                if w != 0:
+                    r = q / w
+                else:
+                    print ('На ноль нельзя делить')
+            elif e =="%":
+                r = q % w
+            elif e == "**":
+                r = q ** w
+            print (r)
+            i =i + 1
+    except ValueError:
+        print("Вы ввели что-то не так")
