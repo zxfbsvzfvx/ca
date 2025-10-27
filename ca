@@ -1,11 +1,11 @@
 print ('Калькулятор   ')
-z = False
+z = 1
 try:
-    z = int(input(' Введите количество действий :\n Если хотите проще то введите True :'))
+    z = int(input(' Введите количество действий :\n Если хотите проще то введите 0 :'))
 except ValueError:
     print("Вы ввели что-то не так")
 import webbrowser
-if z == True:
+if z == 0:
     def validator(func):
         def wrapper(url):
             if "." in url:
